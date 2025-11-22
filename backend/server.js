@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({ 
-    origin: 'https://url-shortner-2-cux4.onrender.com',
+    origin: 'https://url-short-r7mu.onrender.com',
   //  origin: 'http://localhost:5173',
 })); 
 
