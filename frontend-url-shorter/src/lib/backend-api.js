@@ -3,7 +3,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const linkApi = {
   async getAll() {
-    const response = await fetch(`${API_BASE_URL}/links`);
+    const response = await fetch(`${API_BASE_URL}/api/links`);
     if (!response.ok) {
       throw new Error('Failed to fetch links');
     }
@@ -11,7 +11,7 @@ export const linkApi = {
   },
 
   async getByCode(code) {
-    const response = await fetch(`${API_BASE_URL}/links/${code}`);
+    const response = await fetch(`${API_BASE_URL}/api/links/${code}`);
     if (response.status === 404) {
       return null;
     }
@@ -22,7 +22,7 @@ export const linkApi = {
   },
 
   async create(code, targetUrl) {
-    const response = await fetch(`${API_BASE_URL}/links`, {
+    const response = await fetch(`${API_BASE_URL}/api/links`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export const linkApi = {
   },
 
   async delete(code) {
-    const response = await fetch(`${API_BASE_URL}/links/${code}`, {
+    const response = await fetch(`${API_BASE_URL}/api/links/${code}`, {
       method: 'DELETE',
     });
 
@@ -52,7 +52,7 @@ export const linkApi = {
   },
 
   async incrementClicks(code) {
-    const response = await fetch(`${API_BASE_URL}/links/${code}/clicks`, {
+    const response = await fetch(`${API_BASE_URL}/api/links/${code}/clicks`, {
       method: 'PUT',
     });
 
