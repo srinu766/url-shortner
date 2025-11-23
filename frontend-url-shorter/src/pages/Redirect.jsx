@@ -20,7 +20,7 @@ const Redirect = () => {
         
         if (link) {
           // Increment click count (fire and forget)
-          linkApi.incrementClicks(code).catch(console.error);
+          // linkApi.incrementClicks(code).catch(console.error);
           
           // Perform redirect
           window.location.href = link.target_url;
