@@ -1,7 +1,7 @@
 
 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {HasherRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Stats from "./pages/Stats";
 import Redirect from "./pages/Redirect";
@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 import { ToastContainer } from "react-toastify";
 
 const App = () => (
-  <BrowserRouter>
+  <HasherRouter>
     <ToastContainer />
     <Routes>
       <Route path="/" element={<Dashboard />} />
@@ -19,7 +19,7 @@ const App = () => (
       <Route path="/r/:code" element={<Redirect />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  </BrowserRouter>
+  </HasherRouter>
 );
 
 export default App;
