@@ -16,7 +16,29 @@ app.use(express.json());
 
 app.use('/api/links', require('./routes/links'));
 
+// 👉 SERVE FRONTEND FIRST
 app.use(express.static(path.join(__dirname, 'dist')));
+
+// app.use(express.static(path.join(__dirname, 'dist')));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
+// app.get('/r/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
+
+// app.use(express.static(path.join(__dirname, 'dist')));
+
+// // SPA Catch-all
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// });
+// 👉 CUSTOM FRONTEND ROUTES
+app.get('/r/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+// 👉 REACT SPA CATCH-ALL MUST BE LAST
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });

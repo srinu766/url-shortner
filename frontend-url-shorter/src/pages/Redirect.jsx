@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Redirect = () => {
   const { code } = useParams();
   console.log("Redirect code1:", code);
-  const [notFound, setNotFound] = useState(false);
+  // const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const handleRedirect = async () => {
@@ -39,25 +39,25 @@ const Redirect = () => {
     handleRedirect();
   }, [code]);
 
-  if (!notFound) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
-        <div className="bg-card text-card-foreground p-8 text-center max-w-md rounded-lg border shadow-sm">
-          <h1 className="text-6xl font-bold text-muted-foreground mb-4">404</h1>
-          <h2 className="text-2xl font-bold mb-2">Link Not Found</h2>
-          <p className="text-muted-foreground mb-6">
-            The short link you're looking for doesn't exist or has been deleted.
-          </p>
-          <a
-            href="/"
-            className="inline-block px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-          >
-            Go to Homepage
-          </a>
-        </div>
-      </div>
-    );
-  }
+  // if (!notFound) {
+  //   return (
+  //     <div className="min-h-screen bg-background flex items-center justify-center p-4">
+  //       <div className="bg-card text-card-foreground p-8 text-center max-w-md rounded-lg border shadow-sm">
+  //         <h1 className="text-6xl font-bold text-muted-foreground mb-4">404</h1>
+  //         <h2 className="text-2xl font-bold mb-2">Link Not Found</h2>
+  //         <p className="text-muted-foreground mb-6">
+  //           The short link you're looking for doesn't exist or has been deleted.
+  //         </p>
+  //         <a
+  //           href="/"
+  //           className="inline-block px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+  //         >
+  //           Go to Homepage
+  //         </a>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
