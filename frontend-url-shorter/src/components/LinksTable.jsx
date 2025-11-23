@@ -18,7 +18,7 @@ export const LinksTable = ({ links, onLinkDeleted }) => {
   );
 
   const copyToClipboard = (code) => {
-    const url = `${window.location.origin}/${code}`;
+    const url = `${window.location.origin}/#/${code}`;
     navigator.clipboard.writeText(url);
     toast.success("Link copied to clipboard!");
   };

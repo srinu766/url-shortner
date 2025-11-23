@@ -35,7 +35,7 @@ const Stats = () => {
 
   const copyToClipboard = () => {
     if (!code) return;
-    const url = `${window.location.origin}/${code}`;
+    const url = `${window.location.origin}/#/${code}`;
     navigator.clipboard.writeText(url);
     toast.success("Link copied to clipboard!");
   };
@@ -68,7 +68,7 @@ const Stats = () => {
     );
   }
 
-  const shortUrl = `${window.location.origin}/${link.code}`;
+  const shortUrl = `${window.location.origin}/#/${link.code}`;
 
   return (
     <div className="min-h-screen bg-background">
