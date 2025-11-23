@@ -4,7 +4,7 @@ import { linkApi } from "../lib/backend-api";
 
 const Redirect = () => {
   const { code } = useParams();
-  console.log("Redirect code:", code);
+  console.log("Redirect code1:", code);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Redirect = () => {
 
       try {
         const link = await linkApi.getByCode(code);
-        console.log("Fetched link:", link);
+        console.log("Fetched link1:", link);
         
         if (link) {
           // Increment click count (fire and forget)
