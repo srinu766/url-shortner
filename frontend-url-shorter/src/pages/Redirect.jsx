@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { linkApi } from "../lib/backend-api";
+import { toast } from "react-toastify";
 
 const Redirect = () => {
   const { code } = useParams();
@@ -10,26 +11,28 @@ const Redirect = () => {
   useEffect(() => {
     const handleRedirect = async () => {
       if (!code) {
-        setNotFound(true);
+        // setNotFound(true);
+        toast.error("Invalid link code.");
         return;
       }
 
       try {
         const link = await linkApi.getByCode(code);
         console.log("Fetched link1:", link);
+        toast.info("Redirecting...");
         
         if (link) {
           // Increment click count (fire and forget)
           // linkApi.incrementClicks(code).catch(console.error);
-          
+          toast.success("Redirect successful!");
           // Perform redirect
           window.location.href = link.target_url;
         } else {
-          setNotFound(true);
+          // setNotFound(true);
         }
       } catch (error) {
         console.error("Redirect error:", error);
-        setNotFound(true);
+        // setNotFound(true);
       }
     };
 
